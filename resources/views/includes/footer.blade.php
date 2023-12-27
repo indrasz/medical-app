@@ -1,76 +1,6 @@
 <!-- footer start -->
 <section class="pt-5 pb-4 bg-white position-relative">
     <div class="container">
-        <div class="row">
-            <div class="col-lg-6">
-                <div class="d-flex align-items-center gap-4">
-                    <a class="" href="#">
-                        <img src="/assets/images/grow/logo.png" height="40" alt="" />
-                    </a>
-                    <svg width="11" height="11" viewBox="0 0 11 11" fill="none"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <g clip-path="url(#clip0_46_750)">
-                            <path
-                                d="M10.3125 5.50002C10.3136 5.64101 10.2707 5.77884 10.1899 5.89435C10.109 6.00987 9.9942 6.09732 9.86135 6.14455L7.13541 7.13584L6.14455 9.86135C6.09571 9.99292 6.00778 10.1064 5.89256 10.1865C5.77734 10.2667 5.64036 10.3096 5.50002 10.3096C5.35968 10.3096 5.22269 10.2667 5.10748 10.1865C4.99226 10.1064 4.90432 9.99292 4.85549 9.86135L3.8642 7.13283L1.13869 6.14455C1.00712 6.09571 0.893644 6.00778 0.813512 5.89256C0.733381 5.77734 0.69043 5.64036 0.69043 5.50002C0.69043 5.35967 0.733381 5.22269 0.813512 5.10748C0.893644 4.99226 1.00712 4.90432 1.13869 4.85549L3.86721 3.8642L4.85549 1.13869C4.90432 1.00712 4.99226 0.893644 5.10748 0.813512C5.22269 0.733381 5.35968 0.69043 5.50002 0.69043C5.64036 0.69043 5.77734 0.733381 5.89256 0.813512C6.00778 0.893644 6.09571 1.00712 6.14455 1.13869L7.13584 3.86721L9.86135 4.85549C9.9942 4.90272 10.109 4.99017 10.1899 5.10568C10.2707 5.22119 10.3136 5.35902 10.3125 5.50002Z"
-                                fill="#DDDDDD" />
-                        </g>
-                        <defs>
-                            <clipPath id="clip0_46_750">
-                                <rect width="11" height="11" fill="white" />
-                            </clipPath>
-                        </defs>
-                    </svg>
-                    <p class="pb-0 mb-0 text-muted">
-                        Easily best finding
-                    </p>
-                </div>
-            </div>
-
-            <div class="col-lg-6">
-                <div class="row">
-
-                    <div class="col-lg-4 col-sm-6">
-                        <div class="ps-xl-2">
-                            <h6 class="mb-4 mt-5 mt-sm-2 fs-14 fw-semibold">
-                                Company</h6>
-                            <ul class="list-unstyled">
-                                <li class="my-3"><a href="/about" class="text-muted">Who we are</a></li>
-                                <li class="my-3"><a href="#" class="text-muted">Contact Us</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-sm-6">
-                        <div class="ps-xl-2">
-                            <h6 class="mb-4 mt-5 mt-sm-2 fs-14 fw-semibold ">
-                                Explore</h6>
-                            <ul class="list-unstyled ">
-                                <li class="my-3"><a href="/blog" class="text-muted">Blog</a></li>
-                                <li class="my-3"><a href="/search" class="text-muted">Explore Business</a></li>
-                                <li class="my-3"><a href="/add-business" class="text-muted">Register Your Business</a>
-                                </li>
-                                <div class="col-lg-4 col-sm-6 d-block d-sm-none">
-                                    <li class="my-3"><a href="#" class="text-muted">Terms of
-                                            Service</a></li>
-                                    <li class="my-3"><a href="#" class="text-muted">Privacy
-                                            Policy</a></li>
-                                </div>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-sm-6 d-none d-sm-block">
-                        <div class="ps-xl-2">
-                            <h6 class="mt-3 fw-semibold opacity-0 ">
-                                .</h6>
-                            <ul class="list-unstyled">
-                                <li class="my-3"><a href="#" class="text-muted">Terms of Service</a></li>
-                                <li class="my-3"><a href="#" class="text-muted">Privacy Policy</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
         <hr />
         <div class="row text-md-start text-center">
             <div class="d-flex col-md-6 align-items-center gap-4">
@@ -78,7 +8,7 @@
                 <p class="pb-0 mb-0 text-muted text-start fs-sm-18 fs-12 mt-sm-0 mt-2">©
                     <script>
                         document.write(new Date().getFullYear())
-                    </script> PT Grow Indonesia. All rights reserved
+                    </script> Prompt. All rights reserved
                 </p>
             </div>
             <div class="d-sm-flex d-block col-md-6 align-items-center justify-content-end gap-4 text-md-end">

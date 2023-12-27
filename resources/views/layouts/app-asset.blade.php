@@ -1,43 +1,36 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="csrf-token" content="{{ csrf_token() }}">
 
-<head>
-    @include('includes.meta')
+        <title>{{ config('app.name', 'Laravel') }}</title>
 
-    <!-- title -->
-    <title>Medical | Home</title>
+        <!-- Fonts -->
+        <link rel="preconnect" href="https://fonts.bunny.net">
+        <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
-    @stack('before-style')
+        <!-- Scripts -->
+        @vite(['resources/css/app.css', 'resources/js/app.js'])
+    </head>
+    <body class="font-sans antialiased">
+        <div class="min-h-screen bg-gray-100">
+            @include('layouts.navigation')
 
-    @include('includes.style')
+            <!-- Page Heading -->
+            @if (isset($header))
+                <header class="bg-white shadow">
+                    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+                        {{ $header }}
+                    </div>
+                </header>
+            @endif
 
-    @stack('after-style')
-
-</head>
-
-<body>
-
-    {{-- @include('sweetalert::alert') --}}
-
-    {{-- @if (\Route::current()->getName() != 'login' && \Route::current()->getName() != 'register-step-1' && \Route::current()->getName() != 'register-step-2' && \Route::current()->getName() != 'register-step-3' && \Route::current()->getName() != 'forgot-password-1' && \Route::current()->getName() != 'forgot-password-2' && \Route::current()->getName() != 'forgot-password-3') --}}
-        @include('includes.navbar')
-    {{-- @endif --}}
-
-    @yield('content')
-
-    {{-- @if (\Route::current()->getName() != 'login' && \Route::current()->getName() != 'register-step-1' && \Route::current()->getName() != 'register-step-2' && \Route::current()->getName() != 'register-step-3' && \Route::current()->getName() != 'forgot-password-1' && \Route::current()->getName() != 'forgot-password-2' && \Route::current()->getName() != 'forgot-password-3') --}}
-        @include('includes.footer')
-    {{-- @endif --}}
-
-
-    @stack('before-script')
-
-    @include('includes.script')
-
-    @stack('after-script')
-
-</body>
-
+            <!-- Page Content -->
+            <main>
+                {{ $slot }}
+            </main>
+        </div>
+    </body>
 </html>
-
