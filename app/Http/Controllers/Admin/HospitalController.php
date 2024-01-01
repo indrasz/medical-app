@@ -17,8 +17,9 @@ class HospitalController extends Controller
      */
     public function index()
     {
+        $categories = Category::all();
         $hospitals = Hospital::with(['category'])->get();
-        return view('pages.admin.hospital.index', compact('hospitals'));
+        return view('pages.admin.hospital.index', compact('hospitals', 'categories'));
     }
 
     /**

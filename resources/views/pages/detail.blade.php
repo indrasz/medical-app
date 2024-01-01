@@ -4,7 +4,7 @@
 
 @section('content')
     <!-- features start -->
-    <section class="hero-4 pb-5 pt-8 pt-lg-6 pb-sm-4">
+    {{-- <section class="hero-4 pb-5 pt-8 pt-lg-6 pb-sm-4">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-12">
@@ -56,6 +56,89 @@
                             <div id="map" class="rounded"></div>
                         </div>
                     </div>
+                </div>
+            </div>
+
+        </div>
+    </section> --}}
+
+    <section class="pt-20">
+        <div class="container">
+
+            <div class="py-14">
+                <div class="flex flex-wrap items-center gap-2 bg-gray-100 py-2 px-3">
+                    <a href="{{ route('home') }}" class="transition-all hover:text-primary">Home</a> /
+                    <a href="{{ route('search') }}" class="transition-all hover:text-primary">Detail</a> /
+                    <p class="text-gray-500">{{ $hospital->name }}</p>
+                </div>
+            </div>
+
+            <div class="lg:w-4/5">
+                <span class="bg-orange-500/10 text-orange-500 font-medium rounded-md text-xs py-1 px-2"><a
+                        href="#">{{ $hospital->category->name }}</a></span>
+                <h1 class="lg:text-5xl/snug text-3xl/snug mt-3">{{ $hospital->name }}</h1>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <div>
+                <img src="{{ Storage::url($hospital->thumbnail) }}" alt="{{ $hospital->name }}"
+                    style="max-height: 300px; width: 100%; object-fit: contain;" class="rounded-md" />
+
+            </div>
+
+            <p class="text-sm/relaxed tracking-wider text-gray-600 mb-6">{{ $hospital->description }}</p>
+
+            <div class="bg-gray-100 p-8 mb-6">
+                <h5 class="text-base sm:text-lg font-normal text-gray-600 mb-3">{{ $hospital->address }}</h5>
+                <p class="text-gray-500 font-light text-sm"><i class="fa-solid fa-minus me-2"></i> Christian Hall</p>
+            </div>
+
+            <div class="col-12">
+                <div class="mb-3 mt-5">
+                    <div style="height: 300px">
+                        <div id="map" class="rounded"></div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="flex gap-2 mt-8 mb-14">
+                <p class="text-sm text-gray-500">SHARE:</p>
+                <div class="flex gap-3">
+                    <span>
+                        <a href="#">
+                            <svg class="w-5 h-5 text-blue-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                            </svg>
+                        </a>
+                    </span>
+                    <span>
+                        <a href="#">
+                            <svg class="w-5 h-5 text-teal-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path
+                                    d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z">
+                                </path>
+                            </svg>
+                        </a>
+                    </span>
+                    <span>
+                        <a href="#">
+                            <svg class="w-5 h-5 text-red-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                            </svg>
+                        </a>
+                    </span>
                 </div>
             </div>
 

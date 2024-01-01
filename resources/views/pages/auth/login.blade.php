@@ -3,79 +3,62 @@
 @section('title', 'Login')
 
 @section('content')
-
-    <div class="bg-gradient2 min-vh-100 align-items-center d-flex justify-content-center pt-2 pt-sm-5 pb-4 pb-sm-5">
+    <div class="min-h-screen flex items-center justify-center">
         <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-xl-12">
-                    <div class="card bg-none" style="background: none;">
-                        <div class="card-body  p-0">
-                            <div class="row justify-content-center g-0">
-                                <div class="col-md-5 shadow bg-white">
-                                    <div class="p-xl-5 p-3">
-                                        <div class="mx-auto mb-5">
-                                            <a href="/" class="d-flex">
-                                                <img src="assets/images/logo.png" class="align-self-center" alt="logo-img"
-                                                    height="30" />
-                                            </a>
-                                        </div>
-
-                                        <h6 class="h5 mb-0 mt-3">Welcome back!</h6>
-                                        <p class="text-muted mt-1 mb-4">
-                                            Enter your email address and password to access admin panel.
-                                        </p>
-                                        <!--form start-->
-                                        <form method="POST" action="{{ route('login') }}">
-                                            @csrf
-
-                                            <div class="mb-3">
-                                                <label for="exampleInputEmail1" class="form-label">Email
-                                                    <small>*</small></label>
-                                                <input type="email" required class="form-control" id="exampleInputEmail1"
-                                                    placeholder="Email" name="email" />
-                                            </div>
-
-                                            <div class="mb-3">
-                                                <label class="form-label" for="password">Password <small>*</small></label>
-                                                <a href="account-forget-password.html"
-                                                    class="float-end text-muted text-unline-dashed ms-1 fs-13">Forgot your
-                                                    password?</a>
-                                                <input type="password" required class="form-control" id="password" name="password"
-                                                    placeholder="Enter your password" />
-                                            </div>
-
-                                            <div class="mb-3">
-                                                <input type="checkbox" class="form-check-input" id="checkbox-signin" />
-                                                <label class="form-check-label text-muted" for="checkbox-signin">Remember
-                                                    me</label>
-                                            </div>
-
-                                            <div class="mb-0 text-center d-grid">
-                                                <button class="btn btn-primary" type="submit">Log In</button>
-                                            </div>
-                                        </form>
-                                        <!--/.form end-->
-                                    </div>
-                                </div>
+            <div>
+                <div class=" rounded mb-6">
+                    <div class="flex justify-center">
+                        <div class="shadow-md p-12 rounded-s xl:col-span-5 md:col-span-6">
+                            <div class="mb-12">
+                                <a href="{{ route('home') }}">
+                                    <img src="assets/images/logo-dark.png" alt="logo-img" class="h-8">
+                                </a>
                             </div>
+                            <h6 class="text-base/[1.6] font-semibold text-gray-600 mb-0 mt-4">Welcome back!</h6>
+                            <p class="text-gray-500 text-sm/[1.6] mt-1 mb-6">Enter your email address and password to access
+                                admin panel.</p>
+                            <form method="POST" action="{{ route('login') }}">
+                                @csrf
+                                <div class="mb-4">
+                                    <label for="email" class="block text-sm font-medium mb-1 text-gray-600">Email
+                                        <small>*</small></label>
+                                    <input type="email" id="email" name="email"
+                                        class="py-2 px-4 leading-6 block w-full border-gray-300 rounded text-sm focus:border-gray-300 focus:ring-0"
+                                        placeholder="Your Email">
+                                </div>
 
-                        </div> <!-- end card-body -->
+                                <div class="mb-4">
+                                    <a href="account-forget-password.html"
+                                        class="float-right text-gray-500 text-xs border-b border-dashed pb-1 ms-1">Forgot
+                                        your password?</a>
+                                    <label for="password" class="block text-sm font-medium mb-1 text-gray-600">Password
+                                        <small>*</small></label>
+                                    <input type="password" id="password" name="password"
+                                        class="py-2 px-4 leading-6 block w-full border-gray-300 rounded text-sm focus:border-gray-300 focus:ring-0"
+                                        placeholder="Enter your password">
+                                </div>
+
+                                <div class="flex items-center mb-4">
+                                    <input id="remember" type="checkbox"
+                                        class="shrink-0 border-gray-400 rounded text-blue-600">
+                                    <label for="remember" class="text-xs/none text-gray-700 font-medium ms-3">Remember
+                                        me</label>
+                                </div>
+
+                                <div class="mb-0 text-center">
+                                    <button
+                                        class="w-full bg-primary text-white font-medium leading-6 text-center align-middle select-none py-2 px-4 text-base rounded-md transition-all hover:shadow-lg hover:shadow-primary/30"
+                                        type="submit">Log In</button>
+                                </div>
+                            </form>
+                        </div>
                     </div>
-                    <!-- end card -->
-
-                    <div class="row mt-3">
-                        <div class="col-12 text-center">
-                            <p class="text-muted">Don't have an account? <a href="account-signup.html"
-                                    class="text-primary fw-semibold ms-1">Sign Up</a></p>
-                        </div> <!-- end col -->
-                    </div>
-                    <!-- end row -->
-
-                </div> <!-- end col -->
+                </div>
+                <div class="w-full text-center">
+                    <p class="text-gray-500 leading-6 text-base">Don't have an account? <a href="{{ route('register') }}"
+                            class="text-primary font-semibold ms-1">Sign Up</a></p>
+                </div>
             </div>
-            <!-- end row -->
         </div>
-        <!-- end container -->
     </div>
-
 @endsection

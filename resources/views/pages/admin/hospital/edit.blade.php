@@ -4,108 +4,164 @@
 
 @section('content')
     <!-- page-content start -->
-    <section class="position-relative overflow-hidden py-3 px-3">
-        <div class="container">
-            <!-- recent projects start -->
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="row justify-content-between mt-5">
-                        <div class="col">
-                            <h4 class="mb-3 mt-0 fs-16">Update data Hospital</h4>
+    <div class="bg-slate-100 h-full mt-[77px]  py-3 px-3" style="min-height: 900px;">
+        <section class="relative overflow-hidden">
+            <div class="container">
+                <div class="flex">
+                    <div class="w-full">
+                        <h3 class="text-xl text-gray-800 mt-2">Hospital</h3>
+                        <p class="mt-1 font-medium mb-4">Hospital Page</p>
+                    </div>
+                </div>
+
+                <div class="flex mt-2">
+                    <div class="w-full">
+                        <div class="bg-white rounded">
+                            <div class="p-6">
+                                <div class="grid lg:grid-cols-4 gap-6" data-fc-type="tab">
+                                    <!-- menu start -->
+                                    <div class="col-span-1">
+                                        <nav aria-label="Tabs"
+                                            class="flex flex-row lg:flex-col gap-2 w-auto lg:w-full bg-slate-100 p-1.5 rounded-md lg:justify-start"
+                                            role="tablist">
+                                            <a href="{{ route('dashboard.hospital.index') }}"
+                                                class="text-blue-600 p-3 dark:text-blue-500 hover:underline">Back</a>
+                                        </nav>
+                                    </div>
+                                    <!-- menu end -->
+                                    <div class="lg:col-span-3 transition-all px-4 h-full">
+                                        <div id="edit-hospital" class=" min-h-[650px]">
+                                            <h4 class="text-base text-gray-800">Update Hospital Data</h4>
+
+                                            <form action="{{ route('dashboard.hospital.update', [$hospital->id]) }}"
+                                                method="POST" enctype="multipart/form-data">
+                                                @csrf
+                                                @method('PUT')
+
+                                                <!-- basic info start -->
+                                                <div class="grid grid-cols-2 items-center gap-6 mt-6">
+                                                    <div class="">
+                                                        <div class="mb-4">
+                                                            <label for="name"
+                                                                class="block text-sm font-semibold mb-1 text-gray-600">Hospital
+                                                                Name<small>*</small></label>
+                                                            <input type="text"
+                                                                class="py-2 px-4 leading-6 block w-full text-gray-700 border-gray-300 rounded text-sm focus:border-gray-300 focus:ring-0"
+                                                                id="name" placeholder="Name" name="name"
+                                                                value="{{ $hospital->name ?? '' }}">
+                                                        </div>
+
+                                                        <div class="mb-4">
+
+                                                            <img src="{{ Storage::url($hospital->thumbnail) }}"
+                                                                alt="" width="50" height="50">
+
+                                                            <label for="photo"
+                                                                class="block text-sm font-semibold mb-1 text-gray-600">Thumbnail<small>*</small></label>
+                                                            <input type="file"
+                                                                class="py-2 px-4 leading-6 block w-full text-gray-700 border-gray-300 rounded text-sm focus:border-gray-300 focus:ring-0"
+                                                                id="thumbnail" name="thumbnail">
+                                                        </div>
+
+                                                    </div>
+
+                                                    <div class="">
+                                                        <div class="mb-4">
+                                                            <label for="category"
+                                                                class="block text-sm font-semibold mb-1 text-gray-600">Category</label>
+                                                            <select
+                                                                class="py-2 px-4 leading-6 block w-full text-gray-700 border-gray-300 rounded text-sm focus:border-gray-300 focus:ring-0"
+                                                                style="border: 1px solid #F2F2F2;"
+                                                                aria-label="Default select example" name="category_id"
+                                                                id="categorySelect">
+                                                                <option selected value="{{ $hospital->category_id ?? '' }}">
+                                                                    {{ $hospital->category->name }} </option>
+                                                                @foreach ($categories as $category)
+                                                                    <option value="{{ $category->id }}">
+                                                                        {{ $category->name }}</option>
+                                                                @endforeach
+                                                            </select>
+                                                        </div>
+
+                                                        <div class="mb-4">
+                                                            <label for="address"
+                                                                class="block text-sm font-semibold mb-1 text-gray-600">Address<small>*</small></label>
+                                                            <input type="text"
+                                                                class="py-2 px-4 leading-6 block w-full text-gray-700 border-gray-300 rounded text-sm focus:border-gray-300 focus:ring-0"
+                                                                id="address" placeholder="Address" name="address"
+                                                                value="{{ $hospital->address ?? '' }}">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="mb-4">
+                                                        <label for="address"
+                                                            class="block text-sm font-semibold mb-1 text-gray-600">Latitude<small>*</small></label>
+                                                        <input hidden type="text" required
+                                                            class="py-2 px-4 leading-6 block w-full text-gray-700 border-gray-300 rounded text-sm focus:border-gray-300 focus:ring-0"
+                                                            id="latitude" name="latitude"
+                                                            value="{{ $hospital->latitude ?? '' }}">
+                                                    </div>
+                                                    <div class="mb-4">
+                                                        <label for="address"
+                                                            class="block text-sm font-semibold mb-1 text-gray-600">Longitude<small>*</small></label>
+                                                        <input hidden type="text" required
+                                                            class="py-2 px-4 leading-6 block w-full text-gray-700 border-gray-300 rounded text-sm focus:border-gray-300 focus:ring-0"
+                                                            id="longitude" name="longitude"
+                                                            value="{{ $hospital->longitude ?? '' }}">
+                                                    </div>
+                                                </div>
+                                                <!-- basic info end -->
+
+                                                {{-- <hr class="mb-3"> --}}
+
+                                                {{-- <div class="col-12">
+                                                    <div class="mb-3">
+                                                        <label for="map" class="form-label">Choose Your
+                                                            Location</label>
+                                                        <div style="height: 300px">
+                                                            <input id="pac-input" class="form-control py-2"
+                                                                type="text" placeholder="Search Location" />
+                                                            <div id="map" class="rounded"></div>
+                                                        </div>
+                                                    </div>
+
+                                                </div> --}}
+
+                                                <!-- privacy settings start -->
+                                                <!-- privacy settings end -->
+
+                                                <hr class="mb-3">
+
+                                                <!-- account removal start -->
+                                                <div class="flex">
+                                                    <div class="w-full">
+                                                        <label for="map" class="form-label">Description</label>
+                                                        <textarea
+                                                            class="py-2 px-4 leading-6 block w-full text-gray-700 border-gray-300 rounded text-sm focus:border-gray-300 focus:ring-0"
+                                                            name="description">{{ $hospital->description ?? '' }}</textarea>
+                                                    </div>
+                                                </div>
+                                                <!-- account removal end -->
+
+                                                <!-- save start -->
+                                                <div class="flex mt-3">
+                                                    <div class="w-full">
+                                                        <button type="submit"
+                                                            class="inline-flex items-center justify-center py-3 px-4 rounded-lg text-sm font-semibold transition-all hover:shadow-lg bg-primary text-white hover:shadow-primary/30 focus:shadow-none focus:outline focus:outline-primary/40 ">Submit</button>
+                                                    </div>
+                                                </div>
+                                                <!-- save end -->
+                                            </form>
+                                        </div><!-- end tab -->
+
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-
-                    <form action="{{ route('dashboard.hospital.update', [$hospital->id]) }}" method="POST"
-                        enctype="multipart/form-data">
-                        @method('PUT')
-                        @csrf
-                        <div class="row align-items-center">
-                            <div class="col-lg-6">
-                                <div class="mb-3">
-                                    <label for="hospital" class="form-label">Hospital Name</label>
-                                    <input type="text" required class="form-control" id="hospital" name="name"
-                                        value="{{ $hospital->name ?? '' }}" placeholder="Enter name" />
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="mb-3">
-                                    <label for="address" class="form-label">Address</label>
-                                    <input type="text" required class="form-control" id="address" name="address"
-                                        value="{{ $hospital->address ?? '' }}" placeholder="Enter Address" />
-                                </div>
-                            </div>
-                            <div>
-                                <div class="col-lg-3">
-                                    <div class="mb-3">
-                                        <img src="{{ Storage::url($hospital->thumbnail) }}" alt="" width="50"
-                                            height="50">
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-lg-6">
-                                <div class="mb-3">
-                                    <label for="category" class="form-label">Photo <span class="text-danger">(1MB)</span>
-                                    </label>
-                                    <input type="file" class="form-control" id="thumbnail" name="thumbnail"
-                                        placeholder="Enter Photo" />
-                                </div>
-                            </div>
-
-                            <div class="col-lg-6">
-                                <div class="mb-3">
-                                    <label for="category" class="form-label">Category</label>
-                                    <select class="form-select mb-2 me-sm-2 shadow-sm" style="border: 1px solid #F2F2F2;"
-                                        aria-label="Default select example" name="category_id" id="categorySelect">
-                                        <option selected value="{{ $hospital->category_id ?? '' }}">
-                                            {{ $hospital->category->name }} </option>
-                                        @foreach ($categories as $category)
-                                            <option value="{{ $category->id }}">{{ $category->name }}</option>
-                                        @endforeach
-                                    </select>
-
-                                </div>
-                            </div>
-
-                            <div class="col-12">
-                                <div class="mb-3">
-                                    <label for="map" class="form-label">Choose Your Location</label>
-                                    <div style="height: 300px">
-                                        <input id="pac-input" class="form-control py-2" type="text"
-                                            placeholder="Search Location" />
-                                        <div id="map" class="rounded"></div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            {{-- <div class="col-lg-6 mt-3">
-                                    <label for="latitude" class="form-label">Latitude</label> --}}
-                            <input hidden type="text" required class="form-control" id="latitude" name="latitude"
-                                value="{{ $hospital->latitude ?? '' }}" readonly>
-
-                            {{-- </div> --}}
-                            {{-- <div class="col-lg-6 mt-3">
-                                    <label for="longitude" class="form-label">Longitude</label> --}}
-                            <input hidden type="text" required class="form-control" id="longitude" name="longitude"
-                                value="{{ $hospital->longitude ?? '' }}" readonly>
-                            {{-- </div> --}}
-
-                            <div class="col-12">
-                                <label for="map" class="form-label">Description</label>
-                                <textarea class="form-control py-2" name="description">{{ $hospital->description ?? '' }}</textarea>
-                            </div>
-
-
-                            <div class="text-end mt-4">
-                                <button type="submit" class="btn btn-primary ">Update Data</button>
-                            </div>
-                        </div>
-                    </form>
-
                 </div>
-            </div>
-        </div>
-    </section>
+        </section>
+    </div>
     <!-- page-content end -->
 
 @endsection

@@ -4,7 +4,7 @@
 
 @section('content')
     <!-- features start -->
-    <section class="position-relative overflow-hidden py-4 pb-lg-7 mt-4">
+    {{-- <section class="position-relative overflow-hidden py-4 pb-lg-7 mt-4">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col text-center">
@@ -17,32 +17,6 @@
             <div class="row mt-5">
 
                 @forelse ($hospitals as $item)
-                    {{-- <div class="col-lg-6 col-xl-4">
-                        <div class="card shadow-lg rounded" data-aos="fade-up" data-aos-duration="600">
-                            <img src="{{ Storage::url($item->thumbnail) }}" alt="" class="card-img-top"
-                                height="250" />
-                            <div class="card-body">
-                                <div class="">
-                                    <h4 class="mt-0"><a href="#"
-                                            class="text-primary text-capitalize">{{ $item->name }}</a></h4>
-                                    <p class="text-muted mb-2">
-                                        {{ $item->address }}
-                                    </p>
-                                </div>
-                                <div class="pt-3">
-                                    <div class="row align-items-center">
-                                        <div class="col-auto">
-                                            <p class="mb-0">
-                                                <i data-feather="user" class="icon icon-dual icon-xs me-1"></i>
-                                                <a href="{{ route('detail', $item->slug) }}"
-                                                    class="fs-13 align-middle text-muted">Detail</a>
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div> --}}
 
                     <div class="col-lg-4">
                         <div>
@@ -86,6 +60,44 @@
             </div>
         </div>
 
+    </section> --}}
+
+    <section class="py-24">
+        <div class="container">
+
+
+            <div class="grid lg:grid-cols-3 grid-cols-1 gap-6 lg:py-16 py-14" data-aos="fade-up">
+
+                @forelse ($hospitals as $item)
+                    <div>
+                        <img src="{{ Storage::url($item->thumbnail) }}" alt="{{ $item->name }}" class="rounded-md mb-5"
+                            style="max-height: 250px; min-width:100%; object-fit:cover">
+
+                        <span class="bg-orange-500/10 text-orange-500 font-medium rounded-md text-xs py-1 px-2"><a
+                                href="#">{{ $item->category->name }}</a></span>
+                        <h1 class="text-lg my-3 transition-all hover:text-primary"><a
+                                href="{{ route('detail', $item->slug) }}">Introducing new
+                                {{ $item->name }}</a></h1>
+                        <p class="text-sm/relaxed tracking-wider text-gray-500">{{ $item->description }}
+                            <a href="{{ route('detail', $item->slug) }}" class="text-primary">read more</a>
+                        </p>
+                    </div>
+
+
+                @empty
+                @endforelse
+            </div>
+
+
+            <div class="col-12">
+                <div class="mb-3 mt-5">
+                    <div style="height: 300px">
+                        <div id="map" class="rounded"></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
     </section>
 
 

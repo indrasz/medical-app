@@ -17,17 +17,7 @@
 
 <body>
 
-    {{-- @include('sweetalert::alert') --}}
-
-    {{-- @if (\Route::current()->getName() != 'login' && \Route::current()->getName() != 'register-step-1' && \Route::current()->getName() != 'register-step-2' && \Route::current()->getName() != 'register-step-3' && \Route::current()->getName() != 'forgot-password-1' && \Route::current()->getName() != 'forgot-password-2' && \Route::current()->getName() != 'forgot-password-3') --}}
-        {{-- @include('includes.navbar') --}}
-    {{-- @endif --}}
-
     @yield('content')
-
-    {{-- @if (\Route::current()->getName() != 'login' && \Route::current()->getName() != 'register-step-1' && \Route::current()->getName() != 'register-step-2' && \Route::current()->getName() != 'register-step-3' && \Route::current()->getName() != 'forgot-password-1' && \Route::current()->getName() != 'forgot-password-2' && \Route::current()->getName() != 'forgot-password-3') --}}
-        {{-- @include('includes.footer') --}}
-    {{-- @endif --}}
 
 
     @stack('before-script')

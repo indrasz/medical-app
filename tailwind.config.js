@@ -1,5 +1,6 @@
-import defaultTheme from 'tailwindcss/defaultTheme';
-import forms from '@tailwindcss/forms';
+// import defaultTheme from 'tailwindcss/defaultTheme';
+// import forms from '@tailwindcss/forms';
+const colors = require('tailwindcss/colors')
 
 /** @type {import('tailwindcss').Config} */
 export default {
@@ -10,12 +11,33 @@ export default {
     ],
 
     theme: {
+
+        container: {
+            center: true,
+            padding: {
+                DEFAULT: '1rem',
+                sm: '1rem',
+                md: '1rem',
+                lg: '1rem',
+                xl: '3rem',
+                '2xl': '13rem',
+            },
+        },
+
+        fontFamily: {
+            'body': ['Be Vietnam Pro', 'sans-serif'],
+        },
+
         extend: {
-            fontFamily: {
-                sans: ['Figtree', ...defaultTheme.fontFamily.sans],
+            colors: {
+                'primary': colors.blue[600],
             },
         },
     },
 
-    plugins: [forms],
+    plugins: [
+        require('@frostui/tailwindcss/plugin'),
+        require('@tailwindcss/forms'),
+        require('@tailwindcss/typography'),
+    ],
 };
