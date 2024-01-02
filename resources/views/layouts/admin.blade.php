@@ -172,7 +172,8 @@
                                     <form method="POST" action="{{ route('logout') }}">
                                         @csrf
 
-                                        <a class="nav-link !p-2" href="#">
+                                        <a class="nav-link !p-2" href="{{ route('logout') }}"
+                                            onclick="event.preventDefault(); this.closest('form').submit();">
                                             <svg class="h-4 w-4 me-2" xmlns="http://www.w3.org/2000/svg"
                                                 viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
