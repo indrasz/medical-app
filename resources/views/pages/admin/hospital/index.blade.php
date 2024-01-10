@@ -95,7 +95,7 @@
                                                                                     class="py-4 px-6 text-sm font-medium text-right whitespace-nowrap">
 
                                                                                     <form
-                                                                                        action="{{ route('dashboard.category.destroy', $item->id) }}"
+                                                                                        action="{{ route('dashboard.hospital.destroy', $item->id) }}"
                                                                                         method="POST" class="d-inline">
                                                                                         @csrf
                                                                                         @method('DELETE')
